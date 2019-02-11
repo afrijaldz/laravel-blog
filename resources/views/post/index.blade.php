@@ -9,6 +9,7 @@
           <div class="card-header">
             {{ $post->title }}
             <div class="pull-right">
+              <a href="{{ route('post.edit', $post) }}" class="btn btn-sm btn-primary">Edit</a>
               <form action="{{ route('post.destroy', $post) }}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
