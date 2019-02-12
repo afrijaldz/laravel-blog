@@ -35,7 +35,7 @@ class PostController extends Controller
             'category_id' => request('category_id')
         ]);
 
-        return redirect()->route('post.index');
+        return redirect()->route('post.index')->with('success', 'Post ditambahkan');
     }
 
     public function edit(Post $post)
@@ -53,13 +53,13 @@ class PostController extends Controller
             'content' => request('content')
         ]);
 
-        return redirect()->route('post.index');
+        return redirect()->route('post.index')->with('info', 'Post berhasil diedit');
     }
 
     public function destroy(Post $post)
     {
         $post->delete();
 
-        return redirect()->route('post.index');
+        return redirect()->route('post.index')->with('danger', 'Post berhasil dihapus');
     }
 }
